@@ -1,0 +1,31 @@
+{
+  "name": "to-utf-8",
+  "version": "1.0.0",
+  "description": "Detect input encoding and convert to utf-8 if needed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finnp/to-utf-8.git"
+  },
+  "keywords": [
+    "utf8",
+    "encoding",
+    "detection"
+  ],
+  "author": "Finn Pauls",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finnp/to-utf-8/issues"
+  },
+  "homepage": "https://github.com/finnp/to-utf-8",
+  "dependencies": {
+    "charset-detector": "0.0.2",
+    "iconv-lite": "^0.4.4",
+    "peek-stream": "^1.1.1",
+    "stream-splicer": "^1.3.1",
+    "through2": "^0.6.3"
+  }
+}
