@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Detect input encoding and convert to utf-8 if needed",
   "main": "index.js",
+  "bin": {
+    "to-utf-8": "./cli.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",

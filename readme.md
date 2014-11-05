@@ -1,5 +1,8 @@
 # to-utf-8
 
+Install with `npm install to-utf-8` and optionally use the `-g` flag to install the
+command line utility.
+
 
 ## Usage
 ```js

@@ -1,8 +1,33 @@
 var utf8 = require('./')
+var fs = require('fs')
+var path = require('path')
 
-var stream = utf8()
-stream.pipe(process.stdout)
+// Visual test right now. What would be a good way to test this properly?
 
-stream.write(new Buffer('flkjsflsdjfoij@@K:äää', 'utf8'))
-stream.write(new Buffer('flkjsflsdjfoij@@K:äää', 'utf16le'))
-stream.end()
+var testFilesPath = './node_modules/charset-detector/tests/fixtures'
+
+var testfiles = fs.readdirSync(testFilesPath)
+testfiles = testfiles
+  .map(function (file) {
+    return path.resolve(testFilesPath, file)
+  })
+  .filter(function (file) {
+    var stats = fs.statSync(file)
+    return !stats.isDirectory()
+  })
+
+function loop() {
+  var current = testfiles.pop()
+  if(!current) return
+
+  var readstream = fs.createReadStream(current)
+
+  readstream.on('end', loop)
+
+  readstream
+    .pipe(utf8())
+    .pipe(process.stdout)
+}
+  
+loop()
+
