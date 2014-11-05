@@ -1,7 +1,6 @@
 var detect = require('charset-detector')
 var iconv = require('iconv-lite')
 var peek = require('peek-stream')
-var through = require('through2')
 var splicer = require('stream-splicer')
 
 function convertFrom (encoding) {
