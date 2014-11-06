@@ -16,7 +16,11 @@ function getSupportedEncoding (encoding) {
   return 'utf8' // default
 }
 
-function toutf8 (encoding) {
+function toutf8 (opts) {
+  if(!opts) opts = {}
+  if(typeof encoding == 'string') opts = { encoding: opts }
+  var conf = opts.confidence || 0
+  var encoding = opts.encoding
   // encoding given
   if(encoding) return convertFrom(encoding)
     
@@ -24,7 +28,9 @@ function toutf8 (encoding) {
   return peek(function (data, swap) {
     if(!Buffer.isBuffer(data)) return swap(new Error('No buffer'))
     var matches = detect(data)
-    var encoding = matches.length > 0 ? matches[0].charsetName : 'utf8'
+    var encoding = matches.length > 0 && matches[0].confidence > conf
+      ? matches[0].charsetName 
+      : 'utf8'
     encoding = getSupportedEncoding(encoding)
     swap(null, convertFrom(encoding))
   })

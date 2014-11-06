@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 
-var argv = require('minimist')(process.argv.slice(2))
+var opts = require('minimist')(process.argv.slice(2))
 
+if(opts.h || opts.help) {
+  console.error('usage: to-utf-8 [--enc <soruce encoding>] [--conf <minimum confidence>]')
+  process.exit()
+}
+
+opts.encoding = opts.encoding || opts.enc || opts.e
+opts.confidence = Number(opts.confidence || opts.conf || opts.c)
 
 process.stdin
-  .pipe(require('./')(argv.encoding || argv.enc || argv.e))
+  .pipe(require('./')(opts))
   .pipe(process.stdout)

@@ -25,7 +25,7 @@ function loop() {
   readstream.on('end', loop)
 
   readstream
-    .pipe(utf8())
+    .pipe(utf8({confidence: 20}))
     .pipe(process.stdout)
 }
   

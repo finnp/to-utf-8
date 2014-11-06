@@ -25,6 +25,10 @@ fs.createReadStream('utf16-le-file.txt')
   .pipe('utf8encoded.txt')
 ```
 
+You can also pass an options object instead with the following keys:
+* `confidence` Minimum confidence for the detected source encoding. If not reached assume `utf-8`
+* `encoding` Same as passing a string directly. Use the given encoding instead of detecting it.
+
 ## CLI
 
 This modules includes a `to-utf-8` command line tool. It listens for a stream from

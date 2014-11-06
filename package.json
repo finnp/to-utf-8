@@ -7,7 +7,8 @@
     "to-utf-8": "./cli.js"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "test-cli": "./cli.js < node_modules/charset-detector/tests/fixtures/utf-16le.txt"
   },
   "repository": {
     "type": "git",
