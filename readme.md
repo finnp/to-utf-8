@@ -28,6 +28,8 @@ fs.createReadStream('utf16-le-file.txt')
 You can also pass an options object instead with the following keys:
 * `confidence` Minimum confidence for the detected source encoding. If not reached assume `utf-8`
 * `encoding` Same as passing a string directly. Use the given encoding instead of detecting it.
+* `newline` Use input text until newline is reached to detect encoding (default `true`)
+* `detectSize` Maximum size from input to detect encoding (default `65535`)
 
 ## CLI
 
