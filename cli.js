@@ -3,7 +3,7 @@
 var opts = require('minimist')(process.argv.slice(2))
 
 if(opts.h || opts.help) {
-  console.error('usage: to-utf-8 [--enc <soruce encoding>] [--conf <minimum confidence>]')
+  console.error('usage: to-utf-8 [--enc <source encoding>] [--conf <minimum confidence>]')
   process.exit()
 }
 
