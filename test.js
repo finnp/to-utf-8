@@ -16,9 +16,9 @@ testfiles = testfiles
     return !stats.isDirectory()
   })
 
-function loop() {
+function loop () {
   var current = testfiles.pop()
-  if(!current) return
+  if (!current) return
 
   var readstream = fs.createReadStream(current)
 
@@ -28,6 +28,5 @@ function loop() {
     .pipe(utf8({confidence: 20}))
     .pipe(process.stdout)
 }
-  
-loop()
 
+loop()

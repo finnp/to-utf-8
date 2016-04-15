@@ -3,6 +3,7 @@
 Install with `npm install to-utf-8` and optionally use the `-g` flag to install the
 command line utility.
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ## Usage
 ```js

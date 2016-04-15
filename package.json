@@ -7,6 +7,7 @@
     "to-utf-8": "./cli.js"
   },
   "scripts": {
+    "pretest": "standard",
     "test": "node test.js",
     "test-cli": "./cli.js < node_modules/charset-detector/tests/fixtures/utf-16le.txt"
   },
@@ -31,5 +32,8 @@
     "minimist": "^1.1.0",
     "peek-stream": "^1.1.1",
     "stream-splicer": "^1.3.1"
+  },
+  "devDependencies": {
+    "standard": "6.0.8"
   }
 }
