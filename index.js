@@ -38,4 +38,23 @@ function toutf8 (opts) {
   })
 }
 
+function toutf8sync (buf, opts) {
+  if (!opts) opts = {}
+  opts.detectSize = buf.length
+  opts.newline = false
+
+  var stream = toutf8(opts)
+  stream.write(buf)
+  stream.end()
+
+  var output = []
+  var next = null
+
+  while (next = stream.read()) output.push(next)
+
+  return Buffer.concat(output)
+}
+
+toutf8.sync = toutf8sync
+
 module.exports = toutf8
